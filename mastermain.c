@@ -10,7 +10,7 @@ int main() {
     // Menggambar lingkaran di tengah layar
     circle(320, 240, 100);
 
-    // Menunggu input sebelum keluar
+    // Menunggu input sebelsdasdSum keluar
     getch();
     closegraph();
 
