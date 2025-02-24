@@ -7,6 +7,7 @@ int main() {
     // Inisialisasi mode grafik
     initgraph(&gd, &gm, "C:\\MinGW\\lib");
 
+    
     // Menggambar lingkaran di tengah layar
     circle(320, 240, 100);
 
