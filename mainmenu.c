@@ -28,5 +28,5 @@ void showMainMenu() {
     drawButton("PLAY", 250, 250, 100, 50, GREEN);
 
     getch(); // Tunggu input sebelum keluar
-    closegraph();
+    closegraph()nn;
 }
