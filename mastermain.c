@@ -1,16 +1,17 @@
 #include <graphics.h>
 #include <conio.h>
+#include <windows.h>
+#include <iostream>
+
 
 int main() {
-    int gd = DETECT, gm;
+    
 
-    // Inisialisasi mode grafik
-    initgraph(&gd, &gm, "C:\\MinGW\\lib");
+    DWORD screenwidth = GetSystemMetrics(SM_CXSCREEN);
+    DWORD screenheight = GetSystemMetrics(SM_CXSCREEN);
 
-    // Menggambar lingkaran di tengah layar
-    circle(320, 240, 100);
 
-    // Menunggu input sebelsdasdSum keluar
+
     getch();
     closegraph();
 
