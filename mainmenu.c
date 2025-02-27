@@ -13,7 +13,7 @@ void drawButton(const char *label, int x, int y, int width, int height, int colo
 
 void showMainMenu() {
     int gd = DETECT, gm;
-    initgraph(&gd, &gm, "");  // Gunakan "" untuk path driver BGI
+    initgraph(&gd, &gm, "");  // Jika BGI di luar MinGW, gunakan path lengkap
 
     // Set latar belakang hitam
     setbkcolor(BLACK);
@@ -27,6 +27,6 @@ void showMainMenu() {
     // Gambar tombol Play
     drawButton("PLAY", 250, 250, 100, 50, GREEN);
 
-    getch(); // Tunggu input sebelum keluar
-    closegraph(); // Memastikan tidak ada error "too few arguments"
+    getch();  // Tunggu input sebelum keluar
+    closegraph();  // Pastikan ini dieksekusi dengan benar
 }

@@ -1,7 +1,7 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
-#include "graphics.h"
+#include <graphics.h>
 
 // Fungsi untuk menampilkan menu utama
 void showMainMenu();
