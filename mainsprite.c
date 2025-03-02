@@ -2,15 +2,16 @@
 #include "mainsprite.h"
 
 
-void MoveBullets(Player *player) {
-    int step = 10;
-    while(1){
-        cleardevice();
+// void MoveBullets(Bullet_Player *Bullets) {
+//     int step = 10;
+//     while(1){
+//         cleardevice();
+
+        
 
 
-
-    }
-}
+//     }
+// }
 
 void SpaceshipMove(Player *player, int y) {
     int step = 10;
