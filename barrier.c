@@ -1,6 +1,7 @@
 #include <graphics.h>
 #include <conio.h>
 #include <stdio.h>
+#include "barrier.h"
 
 #define SCREEN_WIDTH  640
 #define SCREEN_HEIGHT 480
