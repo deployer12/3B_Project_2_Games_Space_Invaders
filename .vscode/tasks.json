@@ -6,9 +6,10 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "${file}", "mainmenu.c", "mainsprite.c",
+                "${file}", "mainmenu.c", "mainsprite.c", "alien.c", // Tambah alien.c
                 "-o", "${fileDirname}/output.exe",
-                "-lbgi", "-lgdi32", "-lcomdlg32", "-luuid", "-loleaut32", "-lole32"
+                "-lbgi", "-lgdi32", "-lcomdlg32", "-luuid", "-loleaut32", "-lole32",
+                "-mwindows" // Tambah flag ini
             ],
             "group": {
                 "kind": "build",
