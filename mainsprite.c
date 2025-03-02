@@ -2,40 +2,26 @@
 #include "mainsprite.h"
 
 
-// void MoveBullets(Bullet_Player *Bullets) {
-//     int step = 10;
-//     while(1){
-//         cleardevice();
 
-        
-
-
-//     }
-// }
-
-void SpaceshipMove(Player *player, int y) {
+void SpaceshipMove(Player *player) {
     int step = 10;
-    while(1){
-        cleardevice();
+    
+        
         char key = getch();
-        if (key == 27) {
-            if (kbhit()) {
-                break;
-            }
-            else if (key == 'a' && player->x_Player > 40) {
+            if (key == 'a' && player->x_Player > 40) {
                 player->x_Player -= step;
             } else if (key == 'd' && player->x_Player < getmaxy()- 40) {
                 player->x_Player += step;
             }
-        
-        //    if (key == 32)
-        //     {
-    //         MoveBullets(player);
-    //     }
-    //     }
-        
+   }
 
-        // Badan utama
+ 
+
+void DrawSpaceShip(Player *player, int y) {
+    // Badan utama
+    while (1){
+
+        SpaceshipMove(player);
         line(player->x_Player, y, player->x_Player - 20, y + 40);
         line(player->x_Player, y, player->x_Player + 20, y + 40);
         line(player->x_Player - 20, y + 40, player->x_Player + 20, y + 40);
@@ -57,7 +43,5 @@ void SpaceshipMove(Player *player, int y) {
         line(player->x_Player - 5, y + 50, player->x_Player, y + 60);
         line(player->x_Player + 5, y + 50, player->x_Player, y + 60);
         
-    };
-    
-    }    
+    }
 }

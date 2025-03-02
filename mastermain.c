@@ -8,12 +8,12 @@
 
 
 int main() {
-    // Player Spaceship;
+    Player Spaceship;
     
-      
-    // Spaceship.y_Player = getmaxxx();
+    
     showMainMenu();
-    // SpaceshipMove(&Spaceship, screenheight / 2);
+    Spaceship.x_Player = getmaxx() / 2;
+    DrawSpaceShip(&Spaceship, getmaxx() / 2);
 
 
 
