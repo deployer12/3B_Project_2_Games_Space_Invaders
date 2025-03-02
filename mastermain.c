@@ -1,51 +1,28 @@
 #include <graphics.h>
-#include "mainsprite.h"
-#include "mainmenu.h"
-#include "alien.h"
+#include "mainsprite.c"
 #include <conio.h>
 #include <windows.h>
 
+
+
+
 int main() {
-    showMainMenu();
-    Player SpaceShip_P = {getmaxx() / 2, getmaxy() / 2};
+    Player Spaceship;
 
-    // Inisialisasi aliens
-    Alien aliens[MAX_ALIENS];
-    int alienDir = 1;
-    initAliens(aliens);
+    DWORD screenwidth = GetSystemMetrics(SM_CXSCREEN);
+    DWORD screenheight = GetSystemMetrics(SM_CXSCREEN);
 
-    // Inisialisasi peluru
-    initBullets();
+    initwindow(screenwidth, screenheight, "");  
+      
+    Spaceship.x_Player = (int)screenwidth / 2;
 
-    // Buffer untuk double buffering
-    int buffer = imagesize(0, 0, getmaxx(), getmaxy());
-    void *frameBuffer = malloc(buffer);
+    
+    SpaceshipMove(&Spaceship, screenheight / 2);
 
-    int gameOver = 0;
-    while (!gameOver) {
-        getimage(0, 0, getmaxx(), getmaxy(), frameBuffer);
-        if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
-            break;
-        }
 
-        // Cek kalau aliens nyampe bawah (game over)
-        for (int i = 0; i < MAX_ALIENS; i++) {
-            if (aliens[i].active && aliens[i].y >= getmaxy() - BLOCK_SIZE) {
-                gameOver = 1;
-            }
-        }
 
-        cleardevice();
-        SpaceshipMove(&SpaceShip_P);
-        updateBullets();
-        updateAliens(aliens, &alienDir);
-        DrawSpaceShip(&SpaceShip_P); // Ubah jadi DrawSpaceShip
-        drawBullets();
-        drawAliens(aliens);
-        delay(30);
-    }
+    getch();
+    closegraph();
 
-    free(frameBuffer);
-    closegraph(); // WinBGIm biasanya ga perlu parameter
     return 0;
 }
