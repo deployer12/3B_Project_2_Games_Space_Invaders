@@ -42,13 +42,31 @@ void drawBullets() {
 }
 
 void drawAliens() {
-    setfillstyle(SOLID_FILL, GREEN);
+    setcolor(GREEN);
     for (auto &alien : aliens) {
         if (alien.alive) {
-            bar(alien.x, alien.y, alien.x + ALIEN_SIZE, alien.y + ALIEN_SIZE);
+            // Kepala Alien
+            setfillstyle(SOLID_FILL, GREEN);
+            fillellipse(alien.x + ALIEN_SIZE / 2, alien.y + ALIEN_SIZE / 2, ALIEN_SIZE / 2, ALIEN_SIZE / 2);
+            
+            // Mata Alien
+            setfillstyle(SOLID_FILL, WHITE);
+            fillellipse(alien.x + ALIEN_SIZE / 3, alien.y + ALIEN_SIZE / 3, 3, 5);
+            fillellipse(alien.x + (2 * ALIEN_SIZE) / 3, alien.y + ALIEN_SIZE / 3, 3, 5);
+            
+            // Antena
+            line(alien.x + ALIEN_SIZE / 4, alien.y, alien.x + ALIEN_SIZE / 4 - 5, alien.y - 10);
+            line(alien.x + (3 * ALIEN_SIZE) / 4, alien.y, alien.x + (3 * ALIEN_SIZE) / 4 + 5, alien.y - 10);
+            
+            // Tangan dan Kaki
+            line(alien.x, alien.y + ALIEN_SIZE / 2, alien.x - 5, alien.y + ALIEN_SIZE);
+            line(alien.x + ALIEN_SIZE, alien.y + ALIEN_SIZE / 2, alien.x + ALIEN_SIZE + 5, alien.y + ALIEN_SIZE);
+            line(alien.x + ALIEN_SIZE / 4, alien.y + ALIEN_SIZE, alien.x + ALIEN_SIZE / 4, alien.y + ALIEN_SIZE + 5);
+            line(alien.x + (3 * ALIEN_SIZE) / 4, alien.y + ALIEN_SIZE, alien.x + (3 * ALIEN_SIZE) / 4, alien.y + ALIEN_SIZE + 5);
         }
     }
 }
+
 
 void moveBullets() {
     for (auto &bullet : bullets) {
