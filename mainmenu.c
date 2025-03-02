@@ -13,7 +13,7 @@ void drawButton(const char *label, int x, int y, int width, int height, int colo
 
 void showMainMenu() {
     int gd = DETECT, gm;
-    initgraph(&gd, &gm, "");
+    initgraph(&gd, &gm, "");  // Jika BGI di luar MinGW, gunakan path lengkap
 
     // Set latar belakang hitam
     setbkcolor(BLACK);
@@ -21,12 +21,12 @@ void showMainMenu() {
 
     // Judul game
     setcolor(GREEN);
-    drawText("SPACE ALIEN", 200, 100, GREEN);
+    drawText("SPACE", 200, 100, GREEN);
     drawText("INVADERS", 260, 150, RED);
 
     // Gambar tombol Play
-    drawButton("PLAY", 250, 250, 100, 50, GREEN);
+    drawButton("MAINKAN!", 250, 250, 100, 50, GREEN);
 
-    getch(); // Tunggu input sebelum keluar
-    closegraph()nn;
+    getch();  // Tunggu input sebelum keluar
+    closegraph();  // Pastikan ini dieksekusi dengan benar
 }
