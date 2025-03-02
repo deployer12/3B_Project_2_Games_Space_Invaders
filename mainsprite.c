@@ -3,45 +3,73 @@
 
 
 
-void SpaceshipMove(Player *player) {
-    int step = 10;
-    
-        
+void drawSpaceship(Player *player) {
+    int x = player->X_Player;
+    int y = player->Y_Player;
+
+    // Warna utama badan kapal
+    setcolor(CYAN);
+    setfillstyle(SOLID_FILL, CYAN);
+    int body[] = {x, y, x - 20, y + 40, x + 20, y + 40, x, y};
+    fillpoly(4, body);
+
+    // Kokpit
+    setcolor(WHITE);
+    setfillstyle(SOLID_FILL, WHITE);
+    fillellipse(x, y + 10, 7, 10);
+
+    // Sayap kiri
+    setcolor(RED);
+    setfillstyle(SOLID_FILL, RED);
+    int leftWing[] = {x - 20, y + 40, x - 40, y + 60, x - 20, y + 60, x - 20, y + 40};
+    fillpoly(4, leftWing);
+
+    // Sayap kanan
+    setcolor(RED);
+    setfillstyle(SOLID_FILL, RED);
+    int rightWing[] = {x + 20, y + 40, x + 40, y + 60, x + 20, y + 60, x + 20, y + 40};
+    fillpoly(4, rightWing);
+
+    // Mesin
+    setcolor(YELLOW);
+    setfillstyle(SOLID_FILL, YELLOW);
+    bar(x - 10, y + 40, x + 10, y + 50);
+
+    // Cahaya mesin (api thruster)
+    setcolor(LIGHTBLUE);
+    setfillstyle(SOLID_FILL, LIGHTBLUE);
+    int thruster[] = {x - 5, y + 50, x + 5, y + 50, x, y + 70, x - 5, y + 50};
+    fillpoly(4, thruster);
+}
+
+void SpaceshipMove(Player *player) { // Added void return type
+    if (kbhit()) {
         char key = getch();
-            if (key == 'a' && player->x_Player > 40) {
-                player->x_Player -= step;
-            } else if (key == 'd' && player->x_Player < getmaxy()- 40) {
-                player->x_Player += step;
-            }
-   }
-
- 
-
-void DrawSpaceShip(Player *player, int y) {
-    // Badan utama
-    while (1){
-
-        SpaceshipMove(player);
-        line(player->x_Player, y, player->x_Player - 20, y + 40);
-        line(player->x_Player, y, player->x_Player + 20, y + 40);
-        line(player->x_Player - 20, y + 40, player->x_Player + 20, y + 40);
-        
-        // Sayap kiri
-        line(player->x_Player - 20, y + 40, player->x_Player - 40, y + 60);
-        line(player->x_Player - 40, y + 60, player->x_Player - 20, y + 60);
-        
-        // Sayap kanan
-        line(player->x_Player + 20, y + 40, player->x_Player + 40, y + 60);
-        line(player->x_Player + 40, y + 60, player->x_Player + 20, y + 60);
-        
-        // Mesin
-        line(player->x_Player - 10, y + 40, player->x_Player - 10, y + 50);
-        line(player->x_Player + 10, y + 40, player->x_Player + 10, y + 50);
-        
-        // Cahaya mesin
-        setcolor(LIGHTBLUE);
-        line(player->x_Player - 5, y + 50, player->x_Player, y + 60);
-        line(player->x_Player + 5, y + 50, player->x_Player, y + 60);
-        
+        if (key == 'a' && player->X_Player > 40) {
+            player->X_Player -= 10;
+        } else if (key == 'd' && player->X_Player < getmaxx() - 40) {
+            player->X_Player += 10;
+        }
     }
 }
+
+void SpaceShip(Player *player) {
+    int buffer = imagesize(0, 0, getmaxx(), getmaxy());
+    void *frameBuffer = malloc(buffer);
+    
+    
+    while (1) {
+        getimage(0, 0, getmaxx(), getmaxy(), frameBuffer);
+            if (kbhit()) {
+                char key = getch();
+                if (key == 27) { 
+                    break; 
+                }
+            }
+            cleardevice();
+            SpaceshipMove(player);
+            drawSpaceship(player);
+            
+        }
+    }
+    

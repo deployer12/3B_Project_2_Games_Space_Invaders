@@ -7,15 +7,15 @@
 
 typedef struct
 {
-    int x_Player, y_player;
+    int X_Player, Y_Player;
 }Player;
 
 
 
 void MoveBullets(Player *player);
 void SpaceshipMove(Player *player);
-void DrawSpaceShip(Player *player, int);
-
+void DrawSpaceShip(Player *player);
+void SpaceShip(Player *player);
 
 
 

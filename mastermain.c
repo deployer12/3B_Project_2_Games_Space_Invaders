@@ -8,13 +8,10 @@
 
 
 int main() {
-    Player Spaceship;
-    
-    
     showMainMenu();
-    Spaceship.x_Player = getmaxx() / 2;
-    DrawSpaceShip(&Spaceship, getmaxx() / 2);
-
+    Player SpaceShip_P = {getmaxx() / 2, getmaxy() / 2};
+    
+    SpaceShip(&SpaceShip_P);
 
 
     getch();
