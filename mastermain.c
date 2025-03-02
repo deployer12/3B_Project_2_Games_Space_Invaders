@@ -8,17 +8,12 @@
 
 
 int main() {
-    Player Spaceship;
-    DWORD screenwidth = GetSystemMetrics(SM_CXSCREEN);
-    DWORD screenheight = GetSystemMetrics(SM_CXSCREEN);
-
+    // Player Spaceship;
     
       
-    Spaceship.x_Player = (int)screenwidth / 2;
-    
-    
+    // Spaceship.y_Player = getmaxxx();
     showMainMenu();
-    SpaceshipMove(&Spaceship, screenheight / 2);
+    // SpaceshipMove(&Spaceship, screenheight / 2);
 
 
 

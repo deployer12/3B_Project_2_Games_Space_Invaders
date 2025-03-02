@@ -21,7 +21,7 @@ void showMainMenu() {
     DWORD screenwidth = GetSystemMetrics(SM_CXSCREEN);
     DWORD screenheight = GetSystemMetrics(SM_CXSCREEN);
 
-    initwindow(screenwidth, screenheight, "");;  // Jika BGI di luar MinGW, gunakan path lengkap
+    initwindow(screenwidth, screenheight, "");  // Jika BGI di luar MinGW, gunakan path lengkap
 
     // Set latar belakang hitam
     setbkcolor(BLACK);

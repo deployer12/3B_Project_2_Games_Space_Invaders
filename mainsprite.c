@@ -17,10 +17,9 @@ void SpaceshipMove(Player *player, int y) {
     int step = 10;
     while(1){
         cleardevice();
-        
-        if (kbhit()) {
-            char key = getch();
-            if (key == 27) {
+        char key = getch();
+        if (key == 27) {
+            if (kbhit()) {
                 break;
             }
             else if (key == 'a' && player->x_Player > 40) {
@@ -28,9 +27,9 @@ void SpaceshipMove(Player *player, int y) {
             } else if (key == 'd' && player->x_Player < getmaxy()- 40) {
                 player->x_Player += step;
             }
-            
-    //    if (key == 32)
-    //     {
+        
+        //    if (key == 32)
+        //     {
     //         MoveBullets(player);
     //     }
     //     }
@@ -59,6 +58,6 @@ void SpaceshipMove(Player *player, int y) {
         line(player->x_Player + 5, y + 50, player->x_Player, y + 60);
         
     };
-    setcolor(WHITE);
+    
     }    
 }
