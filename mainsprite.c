@@ -1,5 +1,17 @@
 #include <graphics.h>
 #include "mainsprite.h"
+
+
+void MoveBullets(Player *player) {
+    int step = 10;
+    while(1){
+        cleardevice();
+
+
+
+    }
+}
+
 void SpaceshipMove(Player *player, int y) {
     int step = 10;
     while(1){
@@ -16,7 +28,13 @@ void SpaceshipMove(Player *player, int y) {
                 player->x_Player += step;
             }
             
+       if (key == 32)
+        {
+            MoveBullets(player);
         }
+        }
+        
+
         // Badan utama
         line(player->x_Player, y, player->x_Player - 20, y + 40);
         line(player->x_Player, y, player->x_Player + 20, y + 40);

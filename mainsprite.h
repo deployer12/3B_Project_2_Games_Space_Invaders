@@ -4,7 +4,7 @@
 
 typedef struct
 {
-    int x_Player, Y_bullet ;
+    int x_Player, y_player;
 }Player;
 
 void MoveBullets(Player *player);
