@@ -12,7 +12,7 @@ int main() {
     Player SpaceShip_P = {getmaxx() / 2, getmaxy() / 2};
     
     SpaceShip(&SpaceShip_P);
-
+    
 
     getch();
     closegraph();
