@@ -13,10 +13,10 @@ int main() {
     DWORD screenheight = GetSystemMetrics(SM_CXSCREEN);
 
     initwindow(screenwidth, screenheight, "");  
-      
     Spaceship.x_Player = (int)screenwidth / 2;
-
     
+    
+    //Karakter Utama 
     SpaceshipMove(&Spaceship, screenheight / 2);
 
 
