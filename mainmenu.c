@@ -21,7 +21,7 @@ void showMainMenu() {
 
     // Judul game
     setcolor(GREEN);
-    drawText("SPACE ALIEN", 200, 100, GREEN);
+    drawText("SPACE", 200, 100, GREEN);
     drawText("INVADERS", 260, 150, RED);
 
     // Gambar tombol Play
