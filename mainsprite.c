@@ -1,26 +1,45 @@
 #include <graphics.h>
-void drawSpaceship(int x, int y) {
+#include "mainsprite.h"
+void SpaceshipMove(Player *player, int y) {
+    int step = 10;
+    while(1){
+        cleardevice();
+        
+        if (kbhit()) {
+            char key = getch();
+            if (key == 27) {
+                break;
+            }
+            else if (key == 'a' && player->x_Player > 40) {
+                player->x_Player -= step;
+            } else if (key == 'd' && player->x_Player < getmaxy()- 40) {
+                player->x_Player += step;
+            }
+            
+        }
+        // Badan utama
+        line(player->x_Player, y, player->x_Player - 20, y + 40);
+        line(player->x_Player, y, player->x_Player + 20, y + 40);
+        line(player->x_Player - 20, y + 40, player->x_Player + 20, y + 40);
+        
+        // Sayap kiri
+        line(player->x_Player - 20, y + 40, player->x_Player - 40, y + 60);
+        line(player->x_Player - 40, y + 60, player->x_Player - 20, y + 60);
+        
+        // Sayap kanan
+        line(player->x_Player + 20, y + 40, player->x_Player + 40, y + 60);
+        line(player->x_Player + 40, y + 60, player->x_Player + 20, y + 60);
+        
+        // Mesin
+        line(player->x_Player - 10, y + 40, player->x_Player - 10, y + 50);
+        line(player->x_Player + 10, y + 40, player->x_Player + 10, y + 50);
+        
+        // Cahaya mesin
+        setcolor(LIGHTBLUE);
+        line(player->x_Player - 5, y + 50, player->x_Player, y + 60);
+        line(player->x_Player + 5, y + 50, player->x_Player, y + 60);
+        
+    };
     setcolor(WHITE);
     
-    // Badan utama
-    line(x, y, x - 20, y + 40);
-    line(x, y, x + 20, y + 40);
-    line(x - 20, y + 40, x + 20, y + 40);
-    
-    // Sayap kiri
-    line(x - 20, y + 40, x - 40, y + 60);
-    line(x - 40, y + 60, x - 20, y + 60);
-    
-    // Sayap kanan
-    line(x + 20, y + 40, x + 40, y + 60);
-    line(x + 40, y + 60, x + 20, y + 60);
-    
-    // Mesin
-    line(x - 10, y + 40, x - 10, y + 50);
-    line(x + 10, y + 40, x + 10, y + 50);
-    
-    // Cahaya mesin
-    setcolor(LIGHTBLUE);
-    line(x - 5, y + 50, x, y + 60);
-    line(x + 5, y + 50, x, y + 60);
 }

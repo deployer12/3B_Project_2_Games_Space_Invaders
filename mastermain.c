@@ -5,15 +5,19 @@
 
 
 
+
 int main() {
-    
+    Player Spaceship;
 
     DWORD screenwidth = GetSystemMetrics(SM_CXSCREEN);
     DWORD screenheight = GetSystemMetrics(SM_CXSCREEN);
 
     initwindow(screenwidth, screenheight, "");  
       
-    drawSpaceship(screenwidth / 2, screenheight / 2);
+    Spaceship.x_Player = (int)screenwidth / 2;
+
+    
+    SpaceshipMove(&Spaceship, screenheight / 2);
 
 
 

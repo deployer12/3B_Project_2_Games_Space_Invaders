@@ -4,17 +4,11 @@
 
 typedef struct
 {
-    int x, y;
+    int x_Player, Y_bullet ;
 }Player;
 
-typedef struct
-{
-    int x, y;
-}Bullets_Player;
-
-void MovePlayer(Player *Player);
-void MoveBullets(Bullets_Player *Bullets_Player);
-void drawSpaceship(int x, int y);
+void MoveBullets(Player *player);
+void SpaceshipMove(Player *player, int y);
 
 
 
