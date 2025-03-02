@@ -25,7 +25,7 @@ void showMainMenu() {
     drawText("INVADERS", 260, 150, RED);
 
     // Gambar tombol Play
-    drawButton("PLAY", 250, 250, 100, 50, GREEN);
+    drawButton("MAINKAN!", 250, 250, 100, 50, GREEN);
 
     getch();  // Tunggu input sebelum keluar
     closegraph();  // Pastikan ini dieksekusi dengan benar
