@@ -1,19 +1,27 @@
 #include "mainmenu.h"
+#include <graphics.h>
+#include <conio.h>
+#include <windows.h>
 
-void drawText(const char *text, int x, int y, int color) {
+
+
+
+void drawText(char *text, int x, int y, int color) {
     setcolor(color);
     outtextxy(x, y, text);
 }
 
-void drawButton(const char *label, int x, int y, int width, int height, int color) {
+void drawButton(char *label, int x, int y, int width, int height, int color) {
     setcolor(color);
     rectangle(x, y, x + width, y + height);
     drawText(label, x + (width / 4), y + (height / 4), color);
 }
 
 void showMainMenu() {
-    int gd = DETECT, gm;
-    initgraph(&gd, &gm, "");  // Jika BGI di luar MinGW, gunakan path lengkap
+    DWORD screenwidth = GetSystemMetrics(SM_CXSCREEN);
+    DWORD screenheight = GetSystemMetrics(SM_CXSCREEN);
+
+    initwindow(screenwidth, screenheight, "");;  // Jika BGI di luar MinGW, gunakan path lengkap
 
     // Set latar belakang hitam
     setbkcolor(BLACK);
@@ -28,5 +36,4 @@ void showMainMenu() {
     drawButton("PLAY!", 250, 250, 100, 50, GREEN);
 
     getch();  // Tunggu input sebelum keluar
-    closegraph();  // Pastikan ini dieksekusi dengan benar
-}
+}    

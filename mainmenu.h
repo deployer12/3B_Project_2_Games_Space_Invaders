@@ -7,9 +7,9 @@
 void showMainMenu();
 
 // Fungsi untuk menampilkan teks di posisi tertentu
-void drawText(const char *text, int x, int y, int color);
+void drawText(char *text, int x, int y, int color);
 
 // Fungsi untuk menggambar tombol
-void drawButton(const char *label, int x, int y, int width, int height, int color);
+void drawButton(char *label, int x, int y, int width, int height, int color);
 
 #endif

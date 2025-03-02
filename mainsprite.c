@@ -29,11 +29,11 @@ void SpaceshipMove(Player *player, int y) {
                 player->x_Player += step;
             }
             
-       if (key == 32)
-        {
-            MoveBullets(player);
-        }
-        }
+    //    if (key == 32)
+    //     {
+    //         MoveBullets(player);
+    //     }
+    //     }
         
 
         // Badan utama
@@ -60,5 +60,5 @@ void SpaceshipMove(Player *player, int y) {
         
     };
     setcolor(WHITE);
-    
+    }    
 }
